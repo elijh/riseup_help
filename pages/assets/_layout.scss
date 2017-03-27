@@ -1,0 +1,268 @@
+
+//
+// LAYOUT STRUCTURE
+//
+// %body
+//   #riseup-bar.nav-home
+//     #riseup-nav
+//   #masthead
+//     .row
+//       .col
+//         .masthead-inner
+//           %ul#top-menu
+//   #main.container
+//     .row
+//       #sidebar.col
+//       .col
+//         .shadow-box
+//           .title-box
+//           .content-box
+//   #footer
+//     .footer-inner
+//
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+//#topbar {
+//  flex: 0 1;
+//}
+#masthead {
+  flex: 0 1;
+}
+#main {
+  flex: 1 1;
+}
+#footer {
+  flex: 0 1;
+}
+
+//#single-column {
+//  display: flex;
+//  margin-top: 15px;
+//  #sidebar {
+//    flex: 0 0;
+//    padding-right: 15px;
+//  }
+//  #content {
+//    flex: 1 1;
+//  }
+//}
+
+//
+// MASTHEAD
+//
+
+#masthead {
+  min-height: 120px;
+  background: 0% 50% $masthead-image no-repeat;
+  background-size: cover !important;
+  background-color: $masthead-background-color;
+  border-bottom: none;
+  .title {
+    .sitename a {
+      background: 0 0 image-url("riseup.png") no-repeat;
+      height: 41px;
+      width: 160px;
+      margin-top: 10px;
+      margin-left: 20px;
+      font-size: 0px;
+      display: block;
+    }
+  }
+
+}
+
+//#masthead {
+//  background-color: $masthead-background-color;
+//  width: 100%;
+//  margin: 0;
+// .masthead-inner {
+//   height: $masthead-height;
+//   background: $masthead-background-color url(#{$masthead-img}) 0px 0px no-repeat;
+//  }
+//}
+
+
+//
+// TOP BAR
+//
+
+/*
+#topbar {
+  background: rgba(0,0,0,0.2);
+  color: #eee;
+  display: flex;
+  a, button {
+    color: #eee;
+  }
+  .title {
+    flex: 1 1;
+  }
+  .username {
+    flex: 1 0;
+    text-align: right;
+  }
+  .login {
+    flex: 0 0;
+  }
+}
+*/
+
+#top-menu {
+  position: relative;
+  bottom: -90px;
+  margin: 0;
+  li {
+    float: left;
+  }
+  a {
+    display: block;
+    padding: 5px 14px;
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: rgba(0,0,0,0.15);
+  }
+  a.active {
+    background-color: $background-color;
+    color: black;
+    box-shadow: inset $menu-shadow-size $menu-shadow-size $menu-shadow-blur $menu-shadow-color;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #top-menu a {
+    padding: 5px 6px;
+    font-size: 12px;
+  }
+}
+
+//
+// MIDDLE
+//
+
+#main {
+  margin-top: $gutter;
+}
+
+body {
+  background-color: $background-color;
+}
+
+.shadow-box {
+  background-color: $content-background-color;
+  border: 1px solid $content-border-color;
+  box-shadow: 1px 1px 4px #CCC9C3;
+}
+
+.title-box {
+  color: black;
+  background-color: $title-background-color;
+  padding: $gutter;
+  border-bottom: 1px dotted $content-border-color;
+  h1 {
+    margin: 0;
+  }
+  .summary {
+    color: #666;
+    line-height: 1.5em;
+    margin-top: 10px;
+  }
+}
+
+.content-box {
+  padding: $gutter;
+}
+
+//
+// SIDEBAR
+//
+
+#sidebar {
+  padding-right: 0;
+  margin-bottom: 15px;
+  #navigation {
+    background-color: $navigation-item-background-color;
+    border: 1px solid $navigation-border-color;
+    box-shadow: 1px 1px 4px #CCC9C3;
+  }
+  ul.nav.nav-pills.nav-stacked {
+    li a {
+      color: $navigation-item-color;
+      border-radius: 0;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    li.active a {
+      background-color: $navigation-item-active-background-color;
+      color: $navigation-item-active-color;
+    }
+  }
+  li.level2 a {padding-left: $gutter*2;}
+  li.level3 a {padding-left: $gutter*3;}
+  .sidebar-addendum {
+    margin-top: $gutter;
+  }
+  a {
+    color: black;
+  }
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    padding-right: 15px; // hard coded bootstrap gutter for now.
+  }
+}
+
+
+//
+// FOOTER
+//
+
+#xfooter {
+  margin-top: 10px;
+  padding-top: 15px;
+  background: #555;
+  color: white;
+  a {
+    color: white;
+  }
+}
+
+
+#xfooter .footer-text {
+  padding-top: 10px;
+  a, & {
+    color: $footer-color;
+    margin: 4px 5px;
+  }
+  a {
+    text-decoration: underline;
+  }
+  a:hover {
+    color: lighten($footer-color, 80%);
+  }
+}
+#xfooter .text-center {
+  margin-top: 10px;
+}
+
+#xfooter {
+  padding-top: $footer-gutter;
+  #footer-inner {
+    height: $footer-height;
+    border-top: $footer-border-width solid $footer-border-color;
+    background-color: $footer-background-color;
+  }
+}
+
+@media (max-width: 767px) {
+  #xfooter .footer-text {
+    font-size: 80%;
+    margin: 0 2px;
+  }
+}
